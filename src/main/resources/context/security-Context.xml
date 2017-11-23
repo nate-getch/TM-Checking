@@ -50,9 +50,10 @@
 		 -->
 		 
 		 <!-- Content Security Policy (CSP) -->
-		
-		<security:headers>
-			<content-security-policy policy-directives="script-src 'self'"> </content-security-policy>
+
+        <security:headers>
+            <security:header name="X-Content-Security-Policy" value="default-src 'self'"/>
+            <security:header name="X-WebKit-CSP" value="default-src 'self'"/>
         </security:headers>
 		<!-- Ref https://docs.spring.io/autorepo/docs/spring-security/3.2.0.CI-SNAPSHOT/reference/html/headers.html -->
 		<!-- <headers>
@@ -87,6 +88,7 @@
         <!-- Version 4.0 + enables CSRF so if we want to disable-->
         <!-- 		<security:csrf disabled="true"/> -->
     </security:http>
+
 
 
     <!-- Database security "custom queries are because we have used our own schema...	-->
