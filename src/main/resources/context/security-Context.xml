@@ -37,16 +37,17 @@
         <security:intercept-url pattern="/session" access="isAuthenticated()" />
         <security:intercept-url pattern="/profile/**" access="hasRole('ROLE_CUSTOMER')"/>
 
-        <!-- Switch to HTTPS -->
+		<security:intercept-url pattern="/logout" access="isAuthenticated()" />
 		
+        <!-- Switch to HTTPS -->
          <security:intercept-url pattern="/login" access="isAnonymous()" requires-channel="https"/>
-         <security:intercept-url pattern="/logout" access="isAuthenticated()" requires-channel="http"/>
+         <!-- <security:intercept-url pattern="/logout" access="isAuthenticated()" requires-channel="https"/> -->
 		 <!--
 		 <intercept-url pattern="/login*" access="permitAll" requires-channel="https"/>
 		 -->
         <!-- 
         <security:intercept-url pattern="/login" access="isAnonymous()" />
-        <security:intercept-url pattern="/logout" access="isAuthenticated()" /> -->
+         -->
 		
         <!-- BASIC login -->
         <!-- 	 		<security:form-login />   -->
