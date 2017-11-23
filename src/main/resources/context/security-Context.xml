@@ -38,16 +38,28 @@
         <security:intercept-url pattern="/profile/**" access="hasRole('ROLE_CUSTOMER')"/>
 
 		<security:intercept-url pattern="/logout" access="isAuthenticated()" />
-		
+        <!-- 
+        <security:intercept-url pattern="/login" access="isAnonymous()" />
+         -->
+		 
         <!-- Switch to HTTPS -->
          <security:intercept-url pattern="/login" access="isAnonymous()" requires-channel="https"/>
          <!-- <security:intercept-url pattern="/logout" access="isAuthenticated()" requires-channel="https"/> -->
 		 <!--
 		 <intercept-url pattern="/login*" access="permitAll" requires-channel="https"/>
 		 -->
-        <!-- 
-        <security:intercept-url pattern="/login" access="isAnonymous()" />
-         -->
+		 
+		 <!-- Content Security Policy (CSP) -->
+		
+		<security:headers>
+			<content-security-policy policy-directives="script-src 'self'"> </content-security-policy>
+        </security:headers>
+		<!-- Ref https://docs.spring.io/autorepo/docs/spring-security/3.2.0.CI-SNAPSHOT/reference/html/headers.html -->
+		<!-- <headers>
+			<content-security-policy policy-directives="script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com;">
+         </content-security-policy>
+        </headers> -->
+
 		
         <!-- BASIC login -->
         <!-- 	 		<security:form-login />   -->
