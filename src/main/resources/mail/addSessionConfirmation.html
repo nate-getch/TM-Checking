@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Session edit Confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div>
+    Dear <span th:text="${counselor.firstName}">Customer</span> <span th:text="${counselor.lastName}"></span>
+    <p>
+        New session is created.
+        <br/>
+        <br/> Session id : <span th:text="${session.id}">1</span>
+        <br/> Date : <span th:text="${#dates.format(session.date, 'dd-MM-yyyy')}">2017-12-12</span>
+        <br/> Start time: <span th:text="${#dates.format(session.startTime, 'HH:mm')}">12:12:pm</span>
+        <br/> Building : <span th:text="${session.location.building}">Verill</span>
+        <br/> Room Number: <span th:text="${session.location.roomNumber}">29</span>
+    </p>
+</div>
+<br/>
+Thank You
+<br/>
+<br/>
+<b><i>Earth Team</i></b>
+</body>
+</html>

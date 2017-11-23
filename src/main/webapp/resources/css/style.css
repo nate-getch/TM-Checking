@@ -1,0 +1,7 @@
+body {padding-top: 54px; background: #fff;}
+@media (min-width: 992px) {
+    body {padding-top: 0px;}
+}
+.main-con{padding:15px; border:1px solid #ccc; background: #fff; border-radius: 5px;padding-bottom: 30px;}
+hr{margin: 10px 0px;}
+.jumbotron-md{padding: 15px 0;}
